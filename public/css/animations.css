@@ -1,0 +1,627 @@
+/**
+ * 7 Ensemble - Animations
+ * Constellation orbits, dancing silhouettes, confetti effects, and smooth transitions
+ */
+
+/* ============================================
+   CONSTELLATION ORBIT ANIMATIONS
+   ============================================ */
+
+/* Main orbit rotation */
+@keyframes rotate-orbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Counter-rotation for orbit items to keep them upright */
+@keyframes counter-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Slow orbit animation */
+.orbit-slow {
+    animation: rotate-orbit 30s linear infinite;
+}
+
+/* Medium orbit animation */
+.orbit-medium {
+    animation: rotate-orbit 20s linear infinite;
+}
+
+/* Fast orbit animation */
+.orbit-fast {
+    animation: rotate-orbit 15s linear infinite;
+}
+
+/* Reverse orbit animation */
+.orbit-reverse {
+    animation: rotate-orbit 25s linear infinite reverse;
+}
+
+/* Keep orbit members upright */
+.orbit-member {
+    animation: counter-rotate 30s linear infinite;
+}
+
+/* Pulsing glow for Alcyone (center) */
+@keyframes alcyone-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(240, 147, 251, 0.6),
+                    0 0 40px rgba(245, 87, 108, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(240, 147, 251, 0.9),
+                    0 0 60px rgba(245, 87, 108, 0.6),
+                    0 0 80px rgba(78, 205, 196, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+.alcyone-glow {
+    animation: alcyone-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   DANCING SILHOUETTES ANIMATION
+   ============================================ */
+
+/* Dancing person - left to right sway */
+@keyframes dance-sway {
+    0%, 100% {
+        transform: translateX(-10px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(10px) rotate(5deg);
+    }
+}
+
+/* Dancing person - bounce */
+@keyframes dance-bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05, 0.95);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(-8px) scale(1.02, 0.98);
+    }
+}
+
+/* Dancing person - spin */
+@keyframes dance-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dancing person - wave arms */
+@keyframes dance-wave {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+}
+
+/* Apply dancing animations */
+.dancing-person {
+    display: inline-block;
+    animation: dance-bounce 2s ease-in-out infinite;
+}
+
+.dancing-person:nth-child(2) {
+    animation: dance-sway 3s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+.dancing-person:nth-child(3) {
+    animation: dance-bounce 2.5s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+/* ============================================
+   CONFETTI EFFECTS
+   ============================================ */
+
+/* Confetti falling animation */
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Confetti particles */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #f093fb;
+    top: -10px;
+    animation: confetti-fall 3s linear infinite;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.confetti:nth-child(2n) {
+    background: #f5576c;
+    width: 8px;
+    height: 8px;
+    animation-duration: 3.5s;
+}
+
+.confetti:nth-child(3n) {
+    background: #4ecdc4;
+    width: 12px;
+    height: 12px;
+    animation-duration: 2.8s;
+}
+
+.confetti:nth-child(4n) {
+    background: #667eea;
+    width: 6px;
+    height: 6px;
+    animation-duration: 3.2s;
+}
+
+/* ============================================
+   FLOATING ANIMATIONS
+   ============================================ */
+
+/* Gentle float up and down */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Floating with rotation */
+@keyframes float-rotate {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.float-rotate {
+    animation: float-rotate 4s ease-in-out infinite;
+}
+
+/* ============================================
+   PULSE ANIMATIONS
+   ============================================ */
+
+/* Simple pulse */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Pulse with glow */
+@keyframes pulse-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+        transform: scale(1.1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   FADE ANIMATIONS
+   ============================================ */
+
+/* Fade in from top */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in scale */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply fade animations */
+.fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.fade-in-scale {
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+/* ============================================
+   SHIMMER EFFECT
+   ============================================ */
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* ============================================
+   HEARTBEAT ANIMATION
+   ============================================ */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(1.0);
+    }
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   SHAKE ANIMATION
+   ============================================ */
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* ============================================
+   BOUNCE ANIMATION
+   ============================================ */
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* ============================================
+   SLIDE IN ANIMATIONS
+   ============================================ */
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* ============================================
+   FLIP ANIMATIONS
+   ============================================ */
+
+@keyframes flipInX {
+    from {
+        transform: perspective(400px) rotateX(-90deg);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotateY(-90deg);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(400px) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.flip-in-x {
+    animation: flipInX 0.8s ease-out forwards;
+}
+
+.flip-in-y {
+    animation: flipInY 0.8s ease-out forwards;
+}
+
+/* ============================================
+   ZOOM ANIMATIONS
+   ============================================ */
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s ease-out forwards;
+}
+
+.zoom-out {
+    animation: zoomOut 0.5s ease-out forwards;
+}
+
+/* ============================================
+   ROTATE ANIMATIONS
+   ============================================ */
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-360 {
+    animation: rotate360 2s linear infinite;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(240, 147, 251, 0.5),
+                     0 0 30px rgba(245, 87, 108, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(240, 147, 251, 0.8),
+                     0 0 40px rgba(245, 87, 108, 0.8),
+                     0 0 50px rgba(78, 205, 196, 0.5);
+    }
+}
+
+.glow-text {
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #f093fb;
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+}
+
+/* ============================================
+   DELAY UTILITIES
+   ============================================ */
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* ============================================
+   DURATION UTILITIES
+   ============================================ */
+
+.duration-100 { animation-duration: 0.1s; }
+.duration-200 { animation-duration: 0.2s; }
+.duration-300 { animation-duration: 0.3s; }
+.duration-500 { animation-duration: 0.5s; }
+.duration-700 { animation-duration: 0.7s; }
+.duration-1000 { animation-duration: 1s; }
+.duration-2000 { animation-duration: 2s; }
+.duration-3000 { animation-duration: 3s; }
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.transition-smooth {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.transition-fast {
+    transition: all 0.15s ease;
+}
+
+.transition-slow {
+    transition: all 0.7s ease;
+}

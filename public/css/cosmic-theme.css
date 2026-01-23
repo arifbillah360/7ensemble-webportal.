@@ -1,0 +1,428 @@
+/**
+ * 7 Ensemble - Cosmic Theme
+ * Starry background, cosmic gradient, and space-themed styles
+ */
+
+/* Cosmic Gradient Background */
+body {
+    background: linear-gradient(180deg, #0f1419 0%, #1a237e 30%, #3949ab 60%, #5c6bc0 85%, #9c27b0 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Twinkling Stars Animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 60px 70px, white, transparent),
+        radial-gradient(1px 1px at 50px 50px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 90px 10px, white, transparent),
+        radial-gradient(1px 1px at 40px 120px, white, transparent),
+        radial-gradient(2px 2px at 150px 60px, white, transparent),
+        radial-gradient(1px 1px at 110px 140px, white, transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 5s ease-in-out infinite;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Ensure content is above background */
+.content-wrapper,
+main,
+header,
+section {
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #764ba2 0%, #f093fb 100%);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 0 6rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4ecdc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(240, 147, 251, 0.3);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(240, 147, 251, 0.5),
+                     0 0 30px rgba(245, 87, 108, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(240, 147, 251, 0.8),
+                     0 0 40px rgba(245, 87, 108, 0.8),
+                     0 0 50px rgba(78, 205, 196, 0.5);
+    }
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #f5576c;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.transformation-amount {
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 2rem 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #4ecdc4 0%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3rem;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(78, 205, 196, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+/* Principle Grid */
+.principe-section {
+    padding: 6rem 0;
+}
+
+.principe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+}
+
+.principe-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.principe-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.principe-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(78, 205, 196, 0.5);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.principe-card:hover::before {
+    opacity: 1;
+}
+
+.principe-number {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.principe-card h3 {
+    font-size: 1.8rem;
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.principe-card p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tours Timeline */
+.tours-timeline {
+    max-width: 800px;
+    margin: 3rem auto;
+    position: relative;
+}
+
+.tours-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #4ecdc4 0%, #f093fb 50%, #f5576c 100%);
+}
+
+.tour-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.tour-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.tour-content {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    transition: all 0.3s;
+}
+
+.tour-content:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(10px);
+}
+
+.tour-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4ecdc4;
+    margin-bottom: 0.5rem;
+}
+
+.tour-amount {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.tour-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Animations for special elements */
+.coeur-magique {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(1.0);
+    }
+}
+
+.pulse-heart {
+    display: inline-block;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+        transform: scale(1.1);
+    }
+}
+
+.glow-heart {
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.8));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 5rem 0 4rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .transformation-amount {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .principe-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .tours-timeline::before {
+        left: 20px;
+    }
+
+    .tour-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .tour-content {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .transformation-amount {
+        font-size: 2.5rem;
+    }
+}
